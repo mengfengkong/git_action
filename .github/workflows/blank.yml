@@ -37,6 +37,7 @@ jobs:
           echo "${{ github.event_path }}"
           echo "${{ github.ref_name }}"
           echo $(git rev-parse HEAD)
+          echo $(git show -s --format=%an)
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
