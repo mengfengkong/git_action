@@ -52,7 +52,7 @@ jobs:
         if: ${{ failure() }}
         run: |
           author=$(git show -s --format=%an)
-          curl -H "Content-Type: application/json" -d '{"msg_type":"interactive","card":{"config":{"wide_screen_mode":true},"i18n_elements":{"zh_cn":[{"tag":"div","text":{"tag":"lark_md","content":"**Github action:** ❌fail"}},{"tag":"div","text":{"tag":"lark_md","content":"**Branch:** ${{ github.ref_name }}"}},{"tag":"div","text":{"tag":"lark_md","content":"**Repository:** ${{ github.repository }}"}},{"tag":"div","text":{"tag":"lark_md","content":"**Author:** $author"}},{"tag":"div","text":{"tag":"lark_md","content":"**Address**: https://github.com/${{ github.repository }}"}}]}}}' ${{ secrets.FEISHU_WEBHOOK }}
+          curl -H "Content-Type: application/json" -d '{"msg_type":"interactive","card":{"config":{"wide_screen_mode":true},"i18n_elements":{"zh_cn":[{"tag":"div","text":{"tag":"lark_md","content":"**Github action:** ❌fail"}},{"tag":"div","text":{"tag":"lark_md","content":"**Branch:** ${{ github.ref_name }}"}},{"tag":"div","text":{"tag":"lark_md","content":"**Repository:** ${{ github.repository }}"}},{"tag":"div","text":{"tag":"lark_md","content":"**Author:** ${{ author }}"}},{"tag":"div","text":{"tag":"lark_md","content":"**Address**: https://github.com/${{ github.repository }}"}}]}}}' ${{ secrets.FEISHU_WEBHOOK }}
 
   deploy:
     runs-on: ubuntu-latest
