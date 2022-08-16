@@ -36,7 +36,8 @@ jobs:
           echo "${{ github.ref }}"
           echo "${{ github.event_path }}"
           echo "${{ github.ref_name }}"
-          git rev-parse HEAD
+          commit=$(git rev-parse HEAD)
+          echo ${{ commit }}
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
