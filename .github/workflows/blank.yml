@@ -40,3 +40,11 @@ jobs:
         if: ${{ failure() }}
         run: |
           echo xxxxx
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Deploy
+        run: |
+           echo xxx
+          
