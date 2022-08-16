@@ -40,6 +40,7 @@ jobs:
         if: ${{ failure() }}
         run: |
           echo xxxxx
+          exit
 
   deploy:
     runs-on: ubuntu-latest
