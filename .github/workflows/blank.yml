@@ -33,4 +33,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
-          if [[ abcd ]]; then echo 1; else echo 0; fi
+          if [[ go run main.go ]]; then echo 1; else echo 0; fi
