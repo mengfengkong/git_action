@@ -33,4 +33,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
-          echo 1/0 || echo ggsimida
+          a, b = echo 1
+          print(a, b)
