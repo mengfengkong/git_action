@@ -33,5 +33,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
-          a, b = echo 1
-          print(a, b)
+          if [[ 1/0 == 0 ]]; then echo 1; else echo 0; fi
