@@ -35,7 +35,11 @@ jobs:
           echo Add other actions to build,
           go run main.go
           # if [[ go run main.go ]]; then echo 1; else echo 0; fi
-      
+      - name: Notify Test Failed
+        if: ${{ failure() }}
+        run: |
+          echo xxxxx
+          exit
 
   deploy:
     runs-on: ubuntu-latest
