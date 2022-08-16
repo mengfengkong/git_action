@@ -31,7 +31,9 @@ jobs:
         
       - name: Git relation
         run: |
-          echo "${{ github.event.path }}"
+          echo "${{ github.repository }}"
+          echo "${{ github.head_ref }}"
+          echo "${{ github.ref }}"
           echo "${{ github.event_path }}"
           echo "${{ github.ref_name }}"
 
@@ -47,7 +49,8 @@ jobs:
       - name: Notify Test Failed
         if: ${{ failure() }}
         run: |
-          curl -H "Content-Type: application/json" -d '{"msg_type": "interactive","card":{"config":{"wide_screen_mode":true},"i18n_elements":{"zh_cn":[{"tag":"div","text":{"tag":"lark_md","content":"**Deploy Result:** ggg "}},{"tag":"div","text":{"tag":"lark_md","content":"**Env:** ggg"}},{"tag":"div","text":{"tag":"lark_md","content":"**Job_name:** ggg"}},{"tag":"div","text":{"tag":"lark_md","content":"**Tag**: ${tag}"}},{"tag":"div","text":{"tag":"lark_md","content":"**CommitMsg**: ggg"}},{"tag":"div","text":{"tag":"lark_md","content":"**Reason**: ggg"}}]}}}' ${{ secrets.FEISHU_WEBHOOK }}
+          echo xxx
+          # curl -H "Content-Type: application/json" -d '{"msg_type": "interactive","card":{"config":{"wide_screen_mode":true},"i18n_elements":{"zh_cn":[{"tag":"div","text":{"tag":"lark_md","content":"**Deploy Result:** ggg "}},{"tag":"div","text":{"tag":"lark_md","content":"**Env:** ggg"}},{"tag":"div","text":{"tag":"lark_md","content":"**Job_name:** ggg"}},{"tag":"div","text":{"tag":"lark_md","content":"**Tag**: ${tag}"}},{"tag":"div","text":{"tag":"lark_md","content":"**CommitMsg**: ggg"}},{"tag":"div","text":{"tag":"lark_md","content":"**Reason**: ggg"}}]}}}' ${{ secrets.FEISHU_WEBHOOK }}
 
   deploy:
     runs-on: ubuntu-latest
