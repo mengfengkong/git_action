@@ -52,7 +52,7 @@ jobs:
         if: ${{ failure() }}
         run: |
           author=$(git show -s --format=%an)
-          curl --location --request POST 'https://devops.treelab.work/api/feishu/msg' --header 'Content-Type: application/json' --data-raw "{\"author\":$author,\"branch\":${{ github.ref_name }},\"repository\":${{ github.repository }},\"address\":${{ github.repository }},\"url\":${{ secrets.FEISHU_WEBHOOK }}}"
+          curl --location --request POST 'https://devops.treelab.work/api/feishu/msg' --header 'Content-Type: application/json' -d "{\"author\":$author,\"branch\":${{ github.ref_name }},\"repository\":${{ github.repository }},\"address\":${{ github.repository }},\"url\":${{ secrets.FEISHU_WEBHOOK }}}"
   deploy:
     runs-on: ubuntu-latest
     needs: build
