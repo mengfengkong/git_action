@@ -47,7 +47,7 @@ jobs:
           # if [[ go run main.go ]]; then echo 1; else echo 0; fi
       - name: Correct
         run: |
-          echo 222
+          echo 2222
       - name: Notify Test Failed
         if: ${{ failure() }}
         run: |
