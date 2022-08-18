@@ -32,13 +32,7 @@ jobs:
       - name: Git relation
         run: |
           echo "${{ github.repository }}"
-          echo "${{ github.head_ref }}"
-          echo "${{ github.ref }}"
-          echo "${{ github.event_path }}"
-          echo "${{ github.ref_name }}"
-          author=$(git rev-parse HEAD)
-          echo $author
-
+          echo "${{ github.triggering_actor }}"
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
