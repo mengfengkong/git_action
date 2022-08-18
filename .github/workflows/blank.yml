@@ -46,7 +46,7 @@ jobs:
       - name: Notify Test Failed
         if: ${{ failure() }}
         run: |
-          author=$(git show -s --format=%an)
+          author=${{ github.actor }}
           curl --location --request POST 'https://devops.treelab.work/api/feishu/msg' --header 'Content-Type: application/json' --data-raw "{\"author\":\"$author\",\"branch\":\"${{ github.ref_name }}\",\"repository\":\"${{ github.repository }}\",\"address\":\"${{ github.repository }}\",\"url\":\"${{ secrets.FEISHU_WEBHOOK }}\"}"
       - name: GG
         run: |
