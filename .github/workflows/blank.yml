@@ -60,7 +60,7 @@ jobs:
         if: ${{ failure() }}
         run: |
           author=${{ github.actor }}
-          curl --location --request POST 'https://devops.treelab.work/api/feishu/msg' --header 'Content-Type: application/json' --data-raw "{\"author\":\"$author\",\"branch\":\"${{ github.ref_name }}\",\"repository\":\"${{ github.repository }}\",\"address\":\"${{ github.repository }}\",\"url\":\"${{ secrets.FEISHU_WEBHOOK }}\"}"
+          curl --location --request POST 'https://devops.treelab.work/api/feishu/msg' --header 'Content-Type: application/json' --data-raw "{\"author\":\"$author\",\"branch\":\"${{ github.ref_name }}\",\"repository\":\"${{ github.repository }}\",\"address\":\"${{ github.repository }}\",\"url\":\"${{ secrets.FEISHU_WEBHOOK }}\", \"id\":\"${{ github.run_id }}\"}"
       - name: GG
         run: |
           echo 'ggs'
